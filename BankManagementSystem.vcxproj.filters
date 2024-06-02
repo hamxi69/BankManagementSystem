@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\accountCrud">
+      <UniqueIdentifier>{6b436081-fb67-4af7-aa17-1cbbee41cbbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\transaction">
+      <UniqueIdentifier>{035e36ad-7661-44b1-ac9b-bbc95b8a4c61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\accStatement">
+      <UniqueIdentifier>{0276cba1-6485-4cb7-8617-dd3ece13ed2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\menu">
+      <UniqueIdentifier>{b95d0d53-9fe2-4c56-8afc-8fd7e7e8f5dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\authentication">
+      <UniqueIdentifier>{38487fb9-e1bb-41fa-829b-a973169284d3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BankManagementSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="createAccount.cpp">
+      <Filter>Source Files\accountCrud</Filter>
+    </ClCompile>
+    <ClCompile Include="delAccount.cpp">
+      <Filter>Source Files\accountCrud</Filter>
+    </ClCompile>
+    <ClCompile Include="getAccountById.cpp">
+      <Filter>Source Files\accountCrud</Filter>
+    </ClCompile>
+    <ClCompile Include="getAccountList.cpp">
+      <Filter>Source Files\accountCrud</Filter>
+    </ClCompile>
+    <ClCompile Include="updateAccount.cpp">
+      <Filter>Source Files\accountCrud</Filter>
+    </ClCompile>
+    <ClCompile Include="transaction.cpp">
+      <Filter>Source Files\transaction</Filter>
+    </ClCompile>
+    <ClCompile Include="deposit.cpp">
+      <Filter>Source Files\transaction</Filter>
+    </ClCompile>
+    <ClCompile Include="statement.cpp">
+      <Filter>Source Files\accStatement</Filter>
+    </ClCompile>
+    <ClCompile Include="createStatement.cpp">
+      <Filter>Source Files\accStatement</Filter>
+    </ClCompile>
+    <ClCompile Include="addStatement.cpp">
+      <Filter>Source Files\accStatement</Filter>
+    </ClCompile>
+    <ClCompile Include="withDraw.cpp">
+      <Filter>Source Files\transaction</Filter>
+    </ClCompile>
+    <ClCompile Include="transfer.cpp">
+      <Filter>Source Files\transaction</Filter>
+    </ClCompile>
+    <ClCompile Include="handleAdminTransaction.cpp">
+      <Filter>Source Files\transaction</Filter>
+    </ClCompile>
+    <ClCompile Include="handleUserTransaction.cpp">
+      <Filter>Source Files\transaction</Filter>
+    </ClCompile>
+    <ClCompile Include="adminMenuChoice.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="choice.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="displayMenu.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="userMenuChoice.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Login.cpp">
+      <Filter>Source Files\authentication</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="authentication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
