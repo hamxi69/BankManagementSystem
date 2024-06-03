@@ -105,22 +105,8 @@ void Bank::createAccount() {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        Statement newStatement;
-        newStatement.id = generateId();
-        newStatement.accId = accounts[total].id;
-        newStatement.isDeposit = true;
-        newStatement.isTransfer = false;
-        newStatement.isWithdraw = false;
-        newStatement.transferTo = "";
-        newStatement.CreatedOn = time(nullptr);
-        newStatement.cash = accounts[total].cash;
-        
-        if (statementCount < 200) {
-            statements[statementCount++] = newStatement;
-        }
-        else {
-            cout << "Error: Statement array is full!" << endl;
-        }
+        Statement newStatement = createStatement(accounts[total].id, accounts[total].cash, true, false, false, "");
+        addStatement(newStatement);
     }
 
     total++;
