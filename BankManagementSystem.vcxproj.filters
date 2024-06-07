@@ -30,9 +30,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BankManagementSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="createAccount.cpp">
       <Filter>Source Files\accountCrud</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
     <ClCompile Include="handleAdminTransaction.cpp">
       <Filter>Source Files\transaction</Filter>
     </ClCompile>
-    <ClCompile Include="handleUserTransaction.cpp">
-      <Filter>Source Files\transaction</Filter>
-    </ClCompile>
     <ClCompile Include="adminMenuChoice.cpp">
       <Filter>Source Files\menu</Filter>
     </ClCompile>
@@ -89,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="Login.cpp">
       <Filter>Source Files\authentication</Filter>
+    </ClCompile>
+    <ClCompile Include="index.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="handelUserTransaction.cpp">
+      <Filter>Source Files\transaction</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
