@@ -12,7 +12,10 @@ bool Login::authenticate(Bank& b) {
         b.setLoggedIn(true);
         b.setLoggedInCustomer("100", "Admin");
         cout << endl;
+        system("CLS");
+
         cout << "Login successful!" << endl;
+
         cout << endl;
 
         return true;
@@ -35,7 +38,10 @@ bool Login::authenticate(Bank& b) {
                         b.setLoggedIn(true);
                         b.setLoggedInCustomer(allAccounts[i].id, allAccounts[i].roleName);
                         cout << endl;
+                        system("CLS");
+
                         cout << "Login successful!" << endl;
+
                         cout << endl;
                         return true;
                     }
@@ -44,7 +50,10 @@ bool Login::authenticate(Bank& b) {
                         b.setLoggedIn(true);
                         b.setLoggedInCustomer(allAccounts[i].id,allAccounts[i].roleName);
                         cout << endl;
+                        system("CLS");
+
                         cout << "Login successful!" << endl;
+
                         cout << endl;
 
                         return true;

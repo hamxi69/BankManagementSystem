@@ -11,7 +11,8 @@ int main() {
     char ch;
 
     do {
-        cout << "Welcome to the Banking System!" << endl;
+        cout << "=================================================Welcome to the Banking System!==============================================" << endl;
+        cout << endl;
 
         do {
             login.authenticate(b);
