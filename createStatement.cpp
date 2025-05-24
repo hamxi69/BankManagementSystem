@@ -1,6 +1,6 @@
 #include "Bank.h"
 
-Bank::Statement Bank::createStatement(const string& accId, int cash, bool isDeposit, bool isTransfer, bool isWithdraw, const string& transferTo) {
+Statement Bank::createStatement(const string& accId, int cash, bool isDeposit, bool isTransfer, bool isWithdraw, const string& transferTo) {
     Statement newStatement;
     newStatement.id = generateId();
     newStatement.accId = accId;

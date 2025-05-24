@@ -117,6 +117,7 @@ void Bank::updateAccountById() {
                 }
 
                 accounts[i].cash = accounts[i].cash;
+                FileManager::saveAccounts(accounts);  
                 cout << endl;
                 cout << "Account Updated successfully!" << endl;
                 cout << endl;
@@ -212,11 +213,9 @@ void Bank::updateAccountById() {
                     accounts[i].cash = accounts[i].cash;
                 }
                 cout << endl;
-
+                FileManager::saveAccounts(accounts); 
                 cout << "Account Updated successfully!" << endl;
-
                 cout << endl;
-
                 if (i == i - 1) {
                     cout << endl;
                     cout << "No such record found" << endl;

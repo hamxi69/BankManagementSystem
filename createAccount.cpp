@@ -1,34 +1,34 @@
-#include "Bank.h"
+﻿#include "Bank.h"
 #include <regex> 
 #include <limits> 
 
 void Bank::createAccount() {
-
     cout << "Do you want to create account? (y/n): ";
     string choice;
     getline(cin, choice);
     if (choice != "y" && choice != "Y") {
-        cout << "Create canceled." << endl;
-        cout << endl;
+        cout << "Create canceled." << endl << endl;
         return;
     }
 
-    cout << "Enter data of accounts:" << total + 1 << endl;
+    person newAccount;
+
+    cout << "Enter data of account: " << total + 1 << endl;
 
     cout << "Enter name: ";
-    getline(cin, accounts[total].name);
-    while (accounts[total].name.empty() || accounts[total].name.find_first_not_of(' ') == string::npos) {
+    getline(cin, newAccount.name);
+    while (newAccount.name.empty() || newAccount.name.find_first_not_of(' ') == string::npos) {
         cout << "Invalid input. Please enter a non-empty name: ";
-        getline(cin, accounts[total].name);
+        getline(cin, newAccount.name);
     }
 
     cout << "ID (format: XXX or XXX-XXX): ";
     while (true) {
-        getline(cin, accounts[total].id);
-        if (regex_match(accounts[total].id, regex("^\\d{3}(-\\d{3})?$"))) {
+        getline(cin, newAccount.id);
+        if (regex_match(newAccount.id, regex("^\\d{3}(-\\d{3})?$"))) {
             bool idExists = false;
-            for (int i = 0; i < total; ++i) {
-                if (accounts[i].id == accounts[total].id) {
+            for (const auto& acc : accounts) {
+                if (acc.id == newAccount.id) {
                     idExists = true;
                     break;
                 }
@@ -42,28 +42,27 @@ void Bank::createAccount() {
         cout << "Invalid ID format. Please enter ID in the format XXX or XXX-XXX: ";
     }
 
-
     cout << "Enter Password: ";
-    getline(cin, accounts[total].password);
-    while (accounts[total].password.empty() || accounts[total].password.find_first_not_of(' ') == string::npos) {
+    getline(cin, newAccount.password);
+    while (newAccount.password.empty() || newAccount.password.find_first_not_of(' ') == string::npos) {
         cout << "Invalid input. Please enter a non-empty password: ";
-        getline(cin, accounts[total].password);
+        getline(cin, newAccount.password);
     }
 
     cout << "Address: ";
-    getline(cin, accounts[total].address);
-    while (accounts[total].address.empty() || accounts[total].address.find_first_not_of(' ') == string::npos) {
+    getline(cin, newAccount.address);
+    while (newAccount.address.empty() || newAccount.address.find_first_not_of(' ') == string::npos) {
         cout << "Invalid input. Please enter a non-empty address: ";
-        getline(cin, accounts[total].address);
+        getline(cin, newAccount.address);
     }
 
     cout << "Contact (format: 03XX-XXXXXXX or +92XXXXXXXXXX): ";
     while (true) {
-        getline(cin, accounts[total].contact);
-        if (regex_match(accounts[total].contact, regex("^03\\d{9}$|^\\+923\\d{9}$"))) {
+        getline(cin, newAccount.contact);
+        if (regex_match(newAccount.contact, regex("^03\\d{9}$|^\\+923\\d{9}$"))) {
             bool contactExists = false;
-            for (int i = 0; i < total; ++i) {
-                if (accounts[i].contact == accounts[total].contact) {
+            for (const auto& acc : accounts) {
+                if (acc.contact == newAccount.contact) {
                     contactExists = true;
                     break;
                 }
@@ -78,40 +77,36 @@ void Bank::createAccount() {
     }
 
     while (true) {
-        cout << "Role: " << endl;
-        cout << "Press 1 For Role Admin." << endl;
-        cout << "Press 2 For Role Customer." << endl;
-        if (!(cin >> accounts[total].role) || (accounts[total].role != 1 && accounts[total].role != 2)) {
+        cout << "Role:\nPress 1 For Admin\nPress 2 For Customer\n";
+        if (!(cin >> newAccount.role) || (newAccount.role != 1 && newAccount.role != 2)) {
             cout << "Invalid input. Please enter 1 for Admin or 2 for Customer: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
         else {
+            cin.ignore();
             break;
         }
     }
 
-    if (accounts[total].role == 1) {
-        accounts[total].roleName = "Admin";
-    }
-    else if (accounts[total].role == 2) {
-        accounts[total].roleName = "Customer";
-    }
+    newAccount.roleName = (newAccount.role == 1) ? "Admin" : "Customer";
 
-    if (accounts[total].role == 2) {
+    if (newAccount.role == 2) {
         cout << "Total Cash: ";
-        while (!(cin >> accounts[total].cash)) {
+        while (!(cin >> newAccount.cash)) {
             cout << "Invalid input. Please enter a valid integer for Total Cash: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        Statement newStatement = createStatement(accounts[total].id, accounts[total].cash, true, false, false, "");
+        cin.ignore();
+        Statement newStatement = createStatement(newAccount.id, newAccount.cash, true, false, false, "");
         addStatement(newStatement);
     }
 
+    accounts.push_back(newAccount); 
     total++;
-    cout << endl;
-    cout << "Account created successfully!" << endl;
-    cout << endl;
+    FileManager::saveAccounts(accounts);
 
+    cout << "\nAccount created successfully!\n\n";
 }
+

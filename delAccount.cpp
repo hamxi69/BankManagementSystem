@@ -1,5 +1,6 @@
 #include "Bank.h"
 #include <conio.h>
+#include <iostream>
 
 void Bank::delAccount() {
     char choice;
@@ -15,12 +16,11 @@ void Bank::delAccount() {
         cin >> accountId;
 
         bool found = false;
-        for (int i = 0; i < total; i++) {
-            if (accountId == accounts[i].id) {
-                for (int j = i; j < total - 1; j++) {
-                    accounts[j] = accounts[j + 1];
-                }
-                total--;
+        for (auto it = accounts.begin(); it != accounts.end(); ++it) {
+            if (accountId == it->id) {
+                accounts.erase(it);  
+                total = static_cast<int>(accounts.size());
+                FileManager::saveAccounts(accounts);
                 cout << "The required data has been deleted" << endl;
                 found = true;
                 break;
@@ -33,13 +33,14 @@ void Bank::delAccount() {
         break;
     }
     case '2':
+        accounts.clear();
         total = 0;
+        FileManager::saveAccounts(accounts);  
         cout << "All records have been deleted" << endl;
         break;
     case '3':
         cout << "Delete Cancelled." << endl;
         return;
-        break;
     default:
         cout << "Invalid Input" << endl;
         break;

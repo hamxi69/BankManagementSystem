@@ -1,0 +1,41 @@
+5
+System Admin
+admin
+admin123
+No Address
++923452990865
+1
+0
+Admin
+Muhammad Hamza
+001
+hamza@123
+Level3 bos pvt ltd
+03452990865
+2
+80000
+Customer
+hamza
+003
+hamza
+no address
+03002990865
+2
+877770
+Customer
+002
+002
+hamza
+no
+03142368883
+1
+0
+Admin
+hamza
+005
+hamza
+no
+03222135717
+1
+0
+Admin

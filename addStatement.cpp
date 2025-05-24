@@ -1,10 +1,8 @@
 #include "Bank.h"
+#include <iostream>
 
 void Bank::addStatement(const Statement& statement) {
-    if (statementCount < 200) {
-        statements[statementCount++] = statement;
-    }
-    else {
-        cout << "Error: Statement array is full!" << endl;
-    }
+        statements.push_back(statement); 
+        statementCount++;
+        FileManager::saveStatements(statements);
 }

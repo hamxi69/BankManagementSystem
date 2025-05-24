@@ -7,6 +7,10 @@
 #include <iomanip>
 #include <sstream>
 #include <ctime> 
+#include "Person.h"
+#include "Statement.h"
+#include "FileManager.h"
+#include "vector"
 
 using namespace std;
 
@@ -31,24 +35,28 @@ public:
         loggedIn = false;
         total = 0;
         statementCount = 0;
+        total = FileManager::loadAccounts(accounts);
+        statementCount = FileManager::loadStatements(statements);
+
+        if (accounts.empty()) {
+            person admin;
+            admin.name = "System Admin";
+            admin.id = "admin";
+            admin.address = "No Address";
+            admin.contact = "+923452990865";
+            admin.password = "admin123";
+            admin.role = 1;
+            admin.roleName = "Admin";
+            admin.cash = 0;
+            accounts.push_back(admin);
+            total = 1;
+            FileManager::saveAccounts(accounts);
+        }
     }
 
-    struct person {
-        string name, id, address, contact, password, roleName;
-        int cash = 0;
-        int role = 0;
-    } accounts[100];
+    vector<person> accounts;
 
-    struct Statement {
-        string id, accId, transferTo, depositFrom;
-        bool isWithdraw = false;
-        bool isDeposit = false;
-        bool isTransfer = false;
-        time_t CreatedOn = {};
-        int cash = 0;
-    };
-
-    Statement statements[200];
+    vector<Statement> statements;
 
     string generateId() {
         ostringstream oss;
@@ -83,7 +91,7 @@ public:
 
     // Statement
     void accStatement();
-    Bank::Statement createStatement(const string& accId, int cash, bool isDeposit, bool isTransfer, bool isWithdraw, const string& transferTo);
+    Statement createStatement(const string& accId, int cash, bool isDeposit, bool isTransfer, bool isWithdraw, const string& transferTo);
     void addStatement(const Statement& statement);
 
 
@@ -96,7 +104,7 @@ public:
     bool getLoggedIn() const { return loggedIn; }
     void setLoggedIn(bool loggedIn) { this->loggedIn = loggedIn; }
 
-    person* getAccounts() {
+    vector<person> getAccounts() {
         return accounts;
     }
 
