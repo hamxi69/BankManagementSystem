@@ -135,6 +135,7 @@
     <ClCompile Include="delAccount.cpp" />
     <ClCompile Include="deposit.cpp" />
     <ClCompile Include="displayMenu.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="getAccountById.cpp" />
     <ClCompile Include="getAccountList.cpp" />
     <ClCompile Include="handelUserTransaction.cpp" />
@@ -151,6 +152,9 @@
   <ItemGroup>
     <ClInclude Include="authentication.h" />
     <ClInclude Include="Bank.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Statement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

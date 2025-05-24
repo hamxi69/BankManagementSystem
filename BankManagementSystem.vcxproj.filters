@@ -28,6 +28,12 @@
     <Filter Include="Source Files\authentication">
       <UniqueIdentifier>{38487fb9-e1bb-41fa-829b-a973169284d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{973a1dd9-eb77-42ce-8488-210438544af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileManager">
+      <UniqueIdentifier>{aa4ae0ee-12f4-4ee4-93df-1d62f7cb6850}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="createAccount.cpp">
@@ -90,12 +96,24 @@
     <ClCompile Include="handelUserTransaction.cpp">
       <Filter>Source Files\transaction</Filter>
     </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Source Files\FileManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="authentication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Statement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,20 +9,27 @@ int main() {
     Bank b;
     Login login;
     char ch;
+    char lastChoice = 0; 
+    bool exitProgram = false;
 
     do {
-        cout << "=================================================Welcome to the Banking System!==============================================" << endl;
-        cout << endl;
+        cout << "=================================================Welcome to the Banking System!==============================================" << endl << endl;
 
         do {
             login.authenticate(b);
         } while (!b.getLoggedIn());
 
-        do {
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            b.displayMenu(b.getIsAdmin());
-            ch = _getch();
-            system("CLS");
+        while (!exitProgram) {
+            if (lastChoice == 0) {
+                system("CLS");             
+                b.displayMenu(b.getIsAdmin());
+                ch = _getch();
+                system("CLS");
+                lastChoice = ch;
+            }
+            else {
+                ch = lastChoice;
+            }
 
             if (b.getIsAdmin()) {
                 b.processAdminMenu(ch);
@@ -32,24 +39,37 @@ int main() {
             }
 
             if (!b.getLoggedIn()) {
-                cout << endl;
-                cout << "Do you want to log in again? (Y/N): ";
+                cout << endl << "Do you want to log in again? (Y/N): ";
                 cin >> ch;
                 cout << endl;
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 if (ch == 'Y' || ch == 'y') {
-                    break;
+                    system("CLS");
+                    lastChoice = 0;
+                    break; 
+                }
+                else {
+                    exitProgram = true;
+                    break; 
                 }
             }
             else {
-                cout << endl;
-                cout << "Do you want to continue? (Y/N): ";
+                cout << endl << "Do you want to continue? (Y/N): ";
                 cin >> ch;
-                cout << endl;
-            }
-        } while (ch == 'Y' || ch == 'y');
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    } while (ch == 'Y' || ch == 'y');
+                if (ch == 'Y' || ch == 'y') {
+                    system("CLS");
+                    
+                }
+                else {
+                    lastChoice = 0;
+                    system("CLS");
+                }
+            }
+        }
+
+    } while (!exitProgram);
 
     cout << "Thank you for using the Banking System!" << endl;
 
